@@ -2,7 +2,7 @@
 
 Squash is the first exchange that makes gift cards tradable. Enriching the world's most untapped asset class.
 
-![Screenshots of Astro Landing Page](screenshots.jpg)
+![Screenshot of Landing Page](squash.jpg)
 
 ## Features
 
