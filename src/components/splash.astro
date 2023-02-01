@@ -1,0 +1,101 @@
+---
+import { generateImage } from "astro-eleventy-img";
+import { Icon } from "astro-icon";
+import Starfield from "~/components/starfield.astro";
+import HeroImage from "~/components/hero-image.astro";
+import Squash from "../assets/squash.png";
+import SquashLogo from "../assets/squashlogo.png";
+
+
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+
+const { webp, avif, png } = generateImage("src/assets/squash.png", {
+  widths,
+  formats: ["webp", "avif", "png"],
+  outputDir: "public/assets/images/squash",
+  urlPath: "/assets/images/squash",
+});
+
+const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }) => srcset).join(",");
+---
+
+<section class="relative h-full bg-black motion-safe:animate-fadeIn">
+  <Starfield />
+  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
+    <HeroImage />
+  </div>
+  <div class="relative grid h-full place-items-center">
+    <h2
+      class="flex flex-col self-center gap-2 sm:gap-4 sm:self-auto sm:justify-self-center"
+    >
+      <!-- <Icon name="logomark" class="h-24 text-white md:h-32 skew-y-12" /> -->
+      <img src={SquashLogo} class="text-white md:h-16 md:w-16 self-center animate-spin mb-0">
+      <div
+        class="font-extrabold tracking-tighter text-center text-8xl gradient-text hover:animate-pulse title"
+      >
+        Squash
+      </div>
+      <div
+          class="font-extrabold tracking-tighter text-center text-2xl text-white"
+        >
+          for cards that need a new home
+    </div>
+    </h2>
+    <!-- <picture
+      class="self-start w-2/3 max-w-3xl sm:w-10/12 sm:self-auto sm:justify-self-start"
+    >
+      <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
+      <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+      <source type="image/png" srcset={pngSrcset} sizes={sizes} />
+      <img
+        class="object-cover w-full h-full"
+        src={png[0].url}
+        width={png[0].width}
+        height={png[0].height}
+        alt="A floating astronaut in a space suit"
+      />
+    </picture> -->
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  picture {
+    animation: float linear 2.5s infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    picture {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
+    }
+  }
+</style>

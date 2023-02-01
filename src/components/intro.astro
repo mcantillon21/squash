@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import cards from "~/data/showcase/cards.json";
+import ShowcaseCard from "./showcase-card.astro";
+// import {Example} from './carosel.jsx';
+// import FooterScroll from "./carosel";
+// import { Scroll } from "/Users/mollycantillon/Downloads/astro-landing-page-main/src/components/carosel";
+import Counter from '../components/carosel.jsx'
+import React from "react";
+
+---
+
+<ContentSection title="Unlock your cards" id="intro">
+
+  <Fragment client:visible slot="lead" class="max-w-8xl">
+    Squash is the first exchange that makes gift cards
+    <span class="text-primary">tradable. </span> 
+
+
+    Enriching the world's most 
+    <span class="text-primary">untapped </span> 
+    asset class. 
+
+    <!-- Because you deserve what you
+    <span class="text-primary">own. </span>  -->
+
+    <!-- <span class="text-primary">Transparency</span> meets <span class="text-primary">a new asset class. </span>  -->
+    
+<!--     
+    transparent. liquid. 
+    <span class="text-primary">Full liquidity</span>
+    performance meets <span class="text-primary">powerful</span> developer experience. -->
+
+  </Fragment>
+  <!-- <Example></Example> -->
+  <!-- <Test></Test> -->
+  <!-- <div>{Scroll}</div> -->
+  <Counter client:visible />
+
+
+  
+  <!-- <div class="grid grid-cols-1 gap-2 sm:grid-cols-2"> -->
+    <a
+      href="https://airtable.com/shrbzsVLx2ohKPBpV"
+      class="flex items-center justify-center gap-3 px-6 py-4 border-2 border-[#243c5a] hover:border-[#f97316] rounded-md"
+    >
+      <span class="whitespace-nowrap">Sign Up</span>
+      <Icon pack="mdi" name="arrow-right" class="h-8"/>
+
+    </a>
+  <!-- </div> -->
+
+</ContentSection>

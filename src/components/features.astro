@@ -1,0 +1,81 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon";
+
+const features = [
+  {
+    title: "Secure",
+    description:
+      "Tap into your locked capital. Never risk losing money. Store all your cards in one complete wallet. ",
+    icon: "mdi:handshake",
+  },
+  {
+    title: "Risk Free",
+    description:
+      "Leveraging advanced price-matching algorithms that only ever touch the cards you want gone. ", 
+    icon: "mdi:feather",
+  },
+  {
+    title: "Complete Payout",
+    description:
+      "Get compensated precisely for what you bring. Unprecedented spreads, reactivating the power of your dollar.",
+    icon: "mdi:directions-fork",
+  },
+  {
+    title: "Infinite Amount",
+    description:
+      "No limits on what you can and can't add. You're in with a million or a dollar.",
+    icon: "mdi:graph",
+  },
+  {
+    title: "Global Reach",
+    description:
+      "Unbounded marketing. By joining the pool, you reach the global masses. ",
+    icon: "mdi:search-web",
+  },
+  {
+    title: "Anonymous",
+    description:
+      "End-to-end encryption, ensuring the safest transactions possible. ", 
+    icon: "mdi:account-group",
+  },
+];
+---
+
+<ContentSection title="Features" id="features">
+  <Fragment slot="lead">
+    What if $5 at Starbucks => $5 <span class="text-primary">anywhere</span>?
+    <!-- Astro comes <span class="text-primary">batteries included</span>. It takes
+    the best parts of
+    <span class="text-primary">state-of-the-art</span>
+    tools and adds its own <span class="text-primary">innovations</span>. -->
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 p-6 border border-default bg-offset">
+          <div class="w-16 h-16 p-3 border-2 border-current rounded-full">
+            <Icon name={icon} />
+          </div>
+          <p class="text-xl font-extrabold text-center">{title}</p>
+          <p class="text-sm text-center text-offset">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <div class='text-6xl font-extrabold tracking-tight text-center w-[32rem] !mt-[10rem]'>
+    Get started with Squash. 
+  </div>
+    <a
+    href="https://airtable.com/shrbzsVLx2ohKPBpV"
+    class="flex items-center font-[800] justify-center gap-3 px-6 py-4 !mb-36 rounded-3xl bg-gradient-to-r from-[#f7df88] to-[#00ffa3] whitespace-nowrap"
+    >
+    <!-- linear-gradient(275deg, rgb(0, 255, 163) 0%, rgb(247, 223, 136) 59%) -->
+      <Icon pack="mdi" name="rocket" class="h-8" />
+      <span>Add a card</span>
+    </a>
+
+
+</ContentSection>
